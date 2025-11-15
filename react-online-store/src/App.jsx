@@ -1,7 +1,6 @@
-
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import './App.css';
+import './App.css'; 
 import Catalog from './pages/Catalog';
 
 

@@ -6,19 +6,52 @@ import DataService from "../services/dataService";
 function Catalog() {
 
     const [products,setProducts]=useState([]);
+    const [categories, setCategories] = useState([]) //Hold catergories list
+    const [prodsToDisplay, setProdsToDisplay] = useState([]) //Hold products to show
 
-    useEffect(()=>{
-        //load your data
+    useEffect(() => {
+        //Load your data
+        console.log("Component loaded")
+        loadCatalog()
+    },[]
+    ) //The empty array [] menas this effect runs only ONCE
+
+    function loadCatalog(){       
         let service = new DataService();
         let data = service.getProducts();
         setProducts(data);
-    },[]);//the empty array [] means this effect runs only once
+        setProdsToDisplay(data) // initially, display all products
+
+        let cats = ["Beer", "Fruit", "Vegetable", "Dairy & Eggs", "Beverages"]
+        setCategories(cats)
+}
+
+function filter(category){
+    let list = []
+    products.forEach(prod => {
+        if(prod.category === category){
+            list.push(prod)
+            }
+        })
+        setProductsToDisplay(list)
+function clearFilter(){
+    setProdsToDisplay()
+
+}
 
     return (
         <div className="catalog">
             <h1>Check our {products.length} amazing products</h1>
-            {products.map(prod => <Product key={prod._id} data={prod} /> )}
-             {/* <div id="example" ></div>  */}
+
+            <div className="filters">
+                <button onClick={clearFilter} className='btn btn-dark btn-filter'> All </button>
+            </div>
+            {categories.map(cat => <button key={cat} onClick={()=> filter(cat)}
+             className='btn btn-primary btn-filter'> </button>
+
+            <div className="product-list">
+               {products.map(prod => <Product key={prod._id} data={prod} /> )}
+             
         </div>       
 
     );
