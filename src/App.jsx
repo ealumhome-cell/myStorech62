@@ -25,6 +25,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>}/>
+            <Route path='/cart' element={<Cart/>}/>
             <Route path='/catalog' element={<Catalog/>} />
             <Route path='/admin' element={<Admin/>} />
             <Route path='*' element={<NotFound/>} />

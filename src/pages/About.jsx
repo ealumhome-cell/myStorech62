@@ -15,7 +15,7 @@ function About() {
       
       { 
         isEmailVisible == true 
-        ? <p>lmiranda@sdgku.edu</p> 
+        ? <p>ashton.ealum@gmail.com</p> 
         : <p>Click the button to see my email address.</p>
       }
 
