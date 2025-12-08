@@ -10,12 +10,13 @@ function QuantityPicker(props){
             setQuantity(nextVal);
             props.onChange()// Notify the parent about change
         }
+    }
 
     function increaseQuantity(){
         let newQuantity = quantity + 1;
         setQuantity(newQuantity);
     }
-}
+
     function decreaseQuantity(){
         let newQuantity = quantity - 1;
         if(newQuantity > 0)
@@ -32,6 +33,6 @@ function QuantityPicker(props){
         <button className="btn-minus" onClick={decreaseQuantity}>-</button>
     </div>
     );
-
 }
+
 export default QuantityPicker;
